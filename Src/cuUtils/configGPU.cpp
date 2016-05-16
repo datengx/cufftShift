@@ -79,7 +79,7 @@ kernelConf* cufftShift::GenAutoConf_2D(int N)
     }
 
     autoConf->block = dim3(threadsPerBlock_X, threadsPerBlock_Y, 1);
-    autoConf->grid = dim3((N / threadsPerBlock_X), (N / threadsPerBlock_Y), 1);
+    autoConf->grid = dim3((2 * N / threadsPerBlock_X), (N / threadsPerBlock_Y), 1);
 
     printf("Auto Block Conf [%d]x[%d] \n", autoConf->block.x, autoConf->block.y);
     printf("Auto Grid Conf [%d]x[%d] \n", autoConf->grid.x, autoConf->grid.y);
